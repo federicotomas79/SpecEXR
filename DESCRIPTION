@@ -1,12 +1,44 @@
 Package: SpecEXR
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Title: Tree detection, segementation and spectral extraction
+Version: 1.0
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+    person("Yanjie", "Li", , "aj7105@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0001-7750-757X"))
+Description: The SpectrEXR is a shiny app for single tree multi-spectral extraction.
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
+Imports: 
+    shiny,
+    DT,
+    BiocManager,
+    EBImage,
+    RStoolbox,
+    data.table,
+    exactextractr,
+    lidR,
+    raster,
+    rasterVis,
+    rgdal,
+    sf,
+    sfheaders,
+    stars,
+    tictoc,
+    tidyverse,
+    tools,
+    viridis,
+    pkgload,
+    utils,
+    dplyr,
+    ggrepel,
+    librarian,
+    readr,
+    shinyWidgets,
+    sp,
+    terra
+ 
+Depends: 
+    R (>= 2.10)
+LazyData: true
