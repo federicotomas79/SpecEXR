@@ -1,5 +1,5 @@
 
-#' SpecexR_app
+#' SpecexR_app HELP
 #'this is an shiny app mainly for multispectral extraction using LAS point cloud data
 #'
 #'
