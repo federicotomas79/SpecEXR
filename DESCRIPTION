@@ -5,8 +5,7 @@ Authors@R:
     person("Yanjie", "Li", , "aj7105@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-7750-757X"))
 Description: The SpectrEXR is a shiny app for single tree multi-spectral extraction.
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+License: MIT + file LICENSE  
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
