@@ -972,7 +972,8 @@ SpecexR_app <- function(...) {
                      detail = 'please wait...', value = 0, {
 
                        dsf1 <-  getData()
-                       dsf1 <-  dsf1  %>%  do.call(c,.)
+                       dsf1 <-  dsf1
+                       # %>%  do.call(c,.)
                        res <- terra::writeRaster(dsf1, filename=file,gdal=c("COMPRESS=DEFLATE", "TFW=YES"), overwrite=TRUE, datatype='INT1U')
                        # print(res@file@name)
                      })
@@ -1064,7 +1065,8 @@ SpecexR_app <- function(...) {
 
     output$summar2  <- renderPrint({
       dsf1 <-  getData()
-      dsf1 <-  dsf1  %>%  do.call(c,.)
+      # dsf1 <-  dsf1
+      # %>%  do.call(c,.)
       if (is.null(dsf1))
         return(NULL)
       print(dsf1)
@@ -1296,7 +1298,8 @@ SpecexR_app <- function(...) {
 
     data_ext2  <- reactive({
       dsf1 <- getData()
-      dsf1 <-  dsf1  %>%  do.call(c,.)
+      # dsf1 <-  dsf1
+      # %>%  do.call(c,.)
       if (is.null(dsf1))
         return('please upload raster images')
       # if (is.null(las_12))
@@ -1505,8 +1508,8 @@ SpecexR_app <- function(...) {
       # sfff <-  sflas3()
 
       sfff1 <- adrarr()$sf
-      select23 <-  getData()
-      dsf21 <-  select23
+      dsf21 <-  getData()
+
       # %>%  do.call(c,.)
       if (is.null(sfff1))
         return(NULL)
@@ -1575,7 +1578,7 @@ SpecexR_app <- function(...) {
     output$warnpredict  <- renderPrint({
       sfff1 <- adrarr()$sf
       select23 <-  getData()
-      rasterDF <-  try (select23  %>%  do.call(c,.))
+      rasterDF <-  try (select23   )
 
       if (inherits(rasterDF, "try-error")){stop(print( "Warning: please upload raster images" ))}
 
@@ -2034,3 +2037,5 @@ SpecexR_app <- function(...) {
   runApp(app, launch.browser = TRUE)
 
 }
+
+SpecexR_app()
