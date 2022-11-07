@@ -1,4 +1,3 @@
-
 #' SpecexR_app
 #'this is an shiny app mainly for multispectral extraction using LAS point cloud data
 #'
@@ -456,13 +455,11 @@ SpecexR_app <- function(...) {
                                  sidebarPanel(width = 4,
                                               column(6,fileInput("file1", "Choose las File",
                                                                  multiple = FALSE,
-                                                                 accept = c("las",
-                                                                            ".las"))),
+                                                                 accept = c("las",".las",".laz",".ply"))),
 
                                               column(6,fileInput("file2", "Choose raster File",
                                                                  multiple = T,
-                                                                 accept = c("tif",
-                                                                            ".tif"))) ,
+                                                                 accept = c("tif", ".tif"))) ,
 
 
                                               # Horizontal line ----
