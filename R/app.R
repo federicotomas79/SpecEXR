@@ -11,15 +11,20 @@
 #'
 
 SpecexR_app <- function(...) {
-  list.of.packages <- c("librarian","Biobase","shinydashboard","tictoc",'BiocManager','quickPlot')
-  new.packages <- list.of.packages[!(list.of.packages %in% utils::installed.packages()[,"Package"])]
+  packages <- c("shinythemes",'shinyjs', 'RCSF','DT',"shinydashboard",'stars',
+                'sfheaders','sf','exactextractr', 'lidR', "shiny",'tidyverse',
+                'RStoolbox','viridis', 'rgdal','tictoc','pls',"EBImage",
+                'raster','rdrop2','tools','rasterVis','data.table',
+                "librarian","Biobase","shinydashboard","tictoc",'BiocManager','quickPlot','pacman')
+  new.packages <- packages[!(packages %in% utils::installed.packages()[,"Package"])]
   if(length(new.packages)) utils::install.packages(new.packages,repos = "https://cloud.r-project.org")
-  if (!require("EBImage", quietly = TRUE))
-    BiocManager::install('EBImage')
+
   library("EBImage")
   tictoc::tic()
-  librarian::shelf("shinythemes",'shinyjs', 'RCSF','DT',"shinydashboard",'stars', 'sfheaders', 'sf','exactextractr', 'lidR', "shiny",'tidyverse','RStoolbox','viridis',
-                   'raster','rdrop2','tools','rasterVis','data.table',quiet = T)
+  # Packages loading
+  invisible(lapply(packages, library, character.only = TRUE))
+  if (!require("EBImage", quietly = TRUE))
+    BiocManager::install('EBImage')
   tictoc::toc()
 
   print('data read time')
