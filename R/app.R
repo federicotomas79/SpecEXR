@@ -453,7 +453,7 @@ SpecexR_app <- function(...) {
                                titlePanel("Segmentation"),
                                sidebarLayout(
                                  sidebarPanel(width = 4,
-                                              column(6,fileInput("file1", "Choose las File",
+                                              column(6,fileInput("file1", "Choose point cloud File",
                                                                  multiple = FALSE,
                                                                  accept = c("las",".las",".laz",".ply"))),
 
