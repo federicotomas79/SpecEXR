@@ -16,6 +16,12 @@ You can install the development version of SpecEXR from [GitHub](https://github.
 # install.packages("devtools")
 devtools::install_github("Yanjie-Li/SpecEXR")
 ```
+# The source package
+
+if there are something wrong and can not install from github, please try to download the source packages: [package](/source-package/SpecEXR_1.0.tar.gz)
+
+
+
 
 ## Example
 
@@ -45,4 +51,7 @@ The third page is "Tree identification and spectra extraction", it is is the cor
 The page is showing like this:
 ![Screenshot](/images/figr23.png)
 
+## data
+
+please download the example data from the belowed link:[example data](https://www.dropbox.com/sh/dncqmm0eh7ek7sw/AADgg3bgyHGz5HWa-I9wLQxra?dl=0)
 
