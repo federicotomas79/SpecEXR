@@ -1693,13 +1693,13 @@ SpecexR_app <- function(...) {
 
       if (!inherits(rasterDF, "try-error")){
 
-        if (nlayers(rasterDF) <= 3) {
+        if (terra::nlyr(rasterDF) <= 3) {
           print("at least 3 layers needed for RGB plot")
           sp:: plot(rasterDF ,col= viridis(200))
 
         } else{
 
-          if (nlayers(rasterDF)>3|nlayers(rasterDF)< 5) {
+          if (terra::nlyr(rasterDF)>3|terra::nlyr(rasterDF)< 5) {
             df <-  ggRGB(rasterDF,  3, 5, 4,
                          stretch = 'lin') + ggtitle(paste0('tree ID-', input$select2))
             print(df)
@@ -1718,13 +1718,13 @@ SpecexR_app <- function(...) {
         e <- extent(matou_vis2[,1:2])
         r <- raster(e, ncol=40, nrow=40)
         rasterDF <- rasterize(matou_vis2[, 1:2], r, matou_vis2[,-c(1:2)])
-        if (nlayers(rasterDF) <= 3) {
+        if (terra::nlyr(rasterDF) <= 3) {
           print("at least 3 layers needed for RGB plot")
           sp:: plot(rasterDF ,col= viridis(200))
 
         } else{
 
-          if (nlayers(rasterDF)>3|nlayers(rasterDF)< 5) {
+          if (terra::nlyr(rasterDF)>3|terra::nlyr(rasterDF)< 5) {
             df <-  ggRGB(rasterDF,  3, 5, 4,
                          stretch = 'lin') + ggtitle(paste0('tree ID-', input$select2))
             print(df)
