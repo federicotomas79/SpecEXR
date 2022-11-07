@@ -948,15 +948,14 @@ SpecexR_app <- function(...) {
                            } else{rs}
 
 
-                         }) %>%   unlist(recursive = F)
-                         # unlist(recursive = F) %>%  unlist(recursive = F)
+                         }) %>%    do.call(c,.)
 
-                         # dsf1 <- dsf1 %>%  do.call(c,.)
+
                          # for (i in 1:length(plr)) {
                          #   names(plr[[i]]) <- inFile1$name[[i]]
                          # }
                          #
-                         # plr
+                         plr
                        })
         }
 
@@ -1507,7 +1506,8 @@ SpecexR_app <- function(...) {
 
       sfff1 <- adrarr()$sf
       select23 <-  getData()
-      dsf21 <-  select23  %>%  do.call(c,.)
+      dsf21 <-  select23
+      # %>%  do.call(c,.)
       if (is.null(sfff1))
         return(NULL)
       if (is.null(dsf21))
