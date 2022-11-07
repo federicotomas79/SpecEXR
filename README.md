@@ -27,10 +27,10 @@ library(SpecEXR)
 SpecexR_app()
 
 ```
-the first page is "Segmentation", it is an visualization  example that the crown spectral of every single tree on one  plantation site has been extracted. the page is showing like this:
+The first page is "Segmentation", it is an visualization  example that the crown spectral of every single tree on one  plantation site has been extracted. the page is showing like this:
 ![Screen](/images/segeme2.gif)
 
-the second page is "VIs graphs generation", it is to calculation the VIs from the images based on the five bands raster images, including red, green, blue, rededge and near-infrared raster tif images. 
+The second page is "VIs graphs generation", it is to calculation the VIs from the images based on the five bands raster images, including red, green, blue, rededge and near-infrared raster tif images. 
 The workflow for the VIs calculation is shown in the flowing graph:
 ![Screenshot](/images/VIs.png)
 
@@ -39,9 +39,10 @@ The workflow for the VIs calculation is shown in the flowing graph:
 The page is showing like this:
 ![Screenshot](/images/figure2.png)
 
-the third page is "Tree identification and spectra extraction", it is is the core function of this app, The workflow for how to use this page can be found in the flowing graph:
+The third page is "Tree identification and spectra extraction", it is is the core function of this app, The workflow for how to use this page can be found in the flowing graph:
 ![Screenshot](/images/treese.png)
 
-
+The page is showing like this:
+![Screenshot](/images/figr23.png)
 
 
