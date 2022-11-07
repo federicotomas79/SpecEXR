@@ -2,7 +2,7 @@
 % Please edit documentation in R/app.R
 \name{SpecexR_app}
 \alias{SpecexR_app}
-\title{SpecexR_app HELP
+\title{SpecexR_app
 this is an shiny app mainly for multispectral extraction using LAS point cloud data}
 \usage{
 SpecexR_app(...)
@@ -14,7 +14,7 @@ SpecexR_app(...)
 final data with x,y location information
 }
 \description{
-SpecexR_app HELP
+SpecexR_app
 this is an shiny app mainly for multispectral extraction using LAS point cloud data
 }
 \examples{
