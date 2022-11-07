@@ -17,7 +17,7 @@ You can install the development version of SpecEXR from [GitHub](https://github.
 devtools::install_github("Yanjie-Li/SpecEXR")
 ```
 
-Note:"rtools" and "EBImage"  and other packages were required, "rtools"should install manually from: [rtools](https://cran.r-project.org/bin/windows/Rtools/rtools42/rtools.html) .  
+Note:`rtools` and "EBImage"  and other packages were required, `rtools` should install manually from: [rtools](https://cran.r-project.org/bin/windows/Rtools/rtools42/rtools.html) .  
  
  
 # The source package
