@@ -208,10 +208,10 @@ SpecexR_app <- function(...) {
     if (in_shiny) shinyjs::runjs(sprintf("console.debug(\"%s\")", txt))
   }
 
-  data1 <- readr::read_rds(system.file("extdata", "data.rds", package = "SpectrEXR"))
+  data1 <- readr::read_rds(system.file("extdata", "data.rds", package = "SpecEXR"))
 
   ras_im_alin <- function(monthi,fami){
-    data1 <- readr::read_rds(system.file("extdata", "data.rds", package = "SpectrEXR"))
+    data1 <- readr::read_rds(system.file("extdata", "data.rds", package = "SpecEXR"))
 
     expr <- tryCatch({
       library(tidyverse)
