@@ -18,7 +18,7 @@ devtools::install_github("Yanjie-Li/SpecEXR")
 ```
 # The source package
 
-if there are something wrong and can not install from github, please try to download the source packages: [package](/source-package/SpecEXR_1.0.tar.gz)
+if there are something wrong and can not install from github, please try to download the source packages and install it from your R or Rstudio from package Archive file: [package](/source-package/SpecEXR_1.0.tar.gz)
 
 
 
