@@ -26,9 +26,6 @@ SpecexR_app <- function(...) {
   if (!require("EBImage", quietly = TRUE))
     BiocManager::install('EBImage')
 
-  if (!require("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
-
   BiocManager::install("Biobase")
 
   tictoc::toc()
