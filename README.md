@@ -31,4 +31,8 @@ library(SpecEXR)
 #SpecexR_app()
 
 ```
+the first page is "Segmentation", it is an visualization  example that the crown spectral of every single tree on one  plantation site has been extracted. the page is showing like this:
+![Screen](/images/segeme2.gif)
+
+
 
