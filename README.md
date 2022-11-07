@@ -57,5 +57,6 @@ The page is showing like this:
 
 ## data
 
-please download the example data from the belowed link:[example data](https://www.dropbox.com/sh/dncqmm0eh7ek7sw/AADgg3bgyHGz5HWa-I9wLQxra?dl=0)
+please download the example data from the bellowed link:[example data](https://www.dropbox.com/sh/dncqmm0eh7ek7sw/AADgg3bgyHGz5HWa-I9wLQxra?dl=0)
+or [example2](https://ln5.sync.com/dl/d6899c6f0/3g32725x-b85yuvm3-ba68kfre-jewun6fk)
 
