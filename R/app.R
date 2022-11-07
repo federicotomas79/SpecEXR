@@ -1,5 +1,5 @@
 
-#' SpecexR_app HELP
+#' SpecexR_app
 #'this is an shiny app mainly for multispectral extraction using LAS point cloud data
 #'
 #'
@@ -516,8 +516,8 @@ SpecexR_app <- function(...) {
                                               ),
                                               fluidRow(
                                                 column(4,downloadButton("tif_data", label = "Download spectral data")),
-                                                column(4, downloadButton("cleaned_data", label = "Download ROI point cloud (las)")),
-                                                column(4, downloadButton("cleaned_data2", label = "Download ROI point cloud (laz)")))
+                                                column(4, downloadButton("cleaned_data", label = "Download ROI PCD (las)")),
+                                                column(4, downloadButton("cleaned_data2", label = "Download ROI PCD (laz)")))
 
 
 
@@ -626,9 +626,9 @@ SpecexR_app <- function(...) {
 
                                                         sidebarPanel(
                                                           fluidRow(
-                                                            column(12, downloadButton("tife_data", label = "Download final data")),
+                                                            column(12, downloadButton("tife_data", label = "Downloadc final data")),
                                                             tags$hr(),
-                                                            column(12, downloadButton("sf_data", label = "Download shapefile"))
+                                                            column(12, downloadButton("sf_data", label = "Downloadc shapefile"))
                                                           )),
                                                         mainPanel(verbatimTextOutput("su2")))
 
@@ -649,7 +649,7 @@ SpecexR_app <- function(...) {
 
 
   library(tools)
-  options(shiny.maxRequestSize=2000*1024^2)
+  options(shiny.maxRequestSize=5000*1024^2)
   server <- function(input, output) {
     trend_data <- reactive({
       sele <-input$status
@@ -927,10 +927,10 @@ SpecexR_app <- function(...) {
                        detail = 'This may take a while...', value = 0, {
                          plr <- lapply(inFile1$datapath, function(m){
                            rs <-terra::rast(m)
-                           if( terra::nlyr(rs)>1) stop('please use single layer tif files')
+                           # if( terra::nlyr(rs)>1) stop('please use single layer tif files')
 
                            if( !(terra::crs(rs,  proj=TRUE)) == '+proj=longlat +datum=WGS84 +no_defs' ){
-                             message(paste('projectioning '))
+                             message(paste('projectioning'))
                              tictoc::tic(print('projection'))
                              rs2 <- terra::project(rs, '+proj=longlat +datum=WGS84 +no_defs')
                              # rs2 <- rs
@@ -947,15 +947,42 @@ SpecexR_app <- function(...) {
                          # unlist(recursive = F) %>%  unlist(recursive = F)
 
                          # dsf1 <- dsf1 %>%  do.call(c,.)
-                         for (i in 1:length(plr)) {
-                           names(plr[[i]]) <- inFile1$name[[i]]
-                         }
-
-                         plr
+                         # for (i in 1:length(plr)) {
+                         #   names(plr[[i]]) <- inFile1$name[[i]]
+                         # }
+                         #
+                         # plr
                        })
         }
 
     })
+
+
+    output$tif_data  <- downloadHandler(
+      filename = function() {
+        x <- gsub(":", ".", Sys.time())
+        paste("spetral_", gsub("/", "-", x), ".tif", sep = "")
+      },
+      content = function(file) {
+        withProgress(message = 'Downloading',
+                     detail = 'please wait...', value = 0, {
+
+                       dsf1 <-  getData()
+                       dsf1 <-  dsf1  %>%  do.call(c,.)
+                       res <- terra::writeRaster(dsf1, filename=file,gdal=c("COMPRESS=DEFLATE", "TFW=YES"), overwrite=TRUE, datatype='INT1U')
+                       # print(res@file@name)
+                     })
+      }
+
+    )
+
+
+
+
+
+
+
+
 
 
     output$cleaned_data <- downloadHandler(
@@ -1626,13 +1653,14 @@ SpecexR_app <- function(...) {
 
       matou_vis2 <- cbind.data.frame(nir[,c('x','y', 'Z', 'area')], nir2)
       matou_vis2 <- matou_vis2 %>% dplyr:: filter(Z > input$heightdata)
-
+      matou_vis2 <- matou_vis2[,colSums(is.na(matou_vis2))<nrow(matou_vis2)]
       t <- try(terra::rast(matou_vis2))
 
       if (!inherits(t, "try-error")){
         sp:: plot(t ,col= viridis(200))
 
       }  else {
+
         e <- extent(matou_vis2[,1:2])
         r <- raster(e, ncol=40, nrow=40)
         x <- rasterize(matou_vis2[, 1:2], r, matou_vis2[,-c(1:2)])
@@ -1648,7 +1676,7 @@ SpecexR_app <- function(...) {
       library(raster)
       library(EBImage)
       library(tools)
-      nir <- filter(finaldata(), treeID == input$select2 )
+      nir <- dplyr::filter(finaldata(), treeID == input$select2 )
       nir3 <- nir[,-c(1:5)]
       library(raster)
       nir2 <- sapply(nir3, function(x) (x - min(x, na.rm = T)) / (max(x, na.rm = T) - min(x, na.rm=T)))
@@ -1681,6 +1709,7 @@ SpecexR_app <- function(...) {
           }
         }
       }  else {
+        matou_vis2 <- matou_vis2[,colSums(is.na(matou_vis2))<nrow(matou_vis2)]
         e <- extent(matou_vis2[,1:2])
         r <- raster(e, ncol=40, nrow=40)
         rasterDF <- rasterize(matou_vis2[, 1:2], r, matou_vis2[,-c(1:2)])
@@ -2000,10 +2029,3 @@ SpecexR_app <- function(...) {
   runApp(app, launch.browser = TRUE)
 
 }
-
-
-
-
-
-
-
