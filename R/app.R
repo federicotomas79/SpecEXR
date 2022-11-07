@@ -22,12 +22,12 @@ SpecexR_app <- function(...) {
 
   tictoc::tic()
   # Packages loading
-  invisible(lapply(packages, library, character.only = TRUE))
+  # invisible(lapply(packages, library, character.only = TRUE))
   if (!require("EBImage", quietly = TRUE))
-    BiocManager::install('EBImage')
-
+  BiocManager::install('EBImage')
+  if (!require("Biobase", quietly = TRUE))
   BiocManager::install("Biobase")
-
+  librarian::shelf(c(packages,'Biobase'),quiet = T)
   tictoc::toc()
 
   print('data read time')
