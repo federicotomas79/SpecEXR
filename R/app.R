@@ -13,13 +13,13 @@
 SpecexR_app <- function(...) {
   packages <- c("shinythemes",'shinyjs', 'RCSF','DT',"shinydashboard",'stars',
                 'sfheaders','sf','exactextractr', 'lidR', "shiny",'tidyverse',
-                'RStoolbox','viridis', 'rgdal','tictoc','pls',"EBImage",
+                'RStoolbox','viridis', 'rgdal','tictoc','pls',
                 'raster','rdrop2','tools','rasterVis','data.table',
                 "librarian","Biobase","shinydashboard","tictoc",'BiocManager','quickPlot','pacman')
   new.packages <- packages[!(packages %in% utils::installed.packages()[,"Package"])]
   if(length(new.packages)) utils::install.packages(new.packages,repos = "https://cloud.r-project.org")
 
-  library("EBImage")
+
   tictoc::tic()
   # Packages loading
   invisible(lapply(packages, library, character.only = TRUE))
