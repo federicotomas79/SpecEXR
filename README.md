@@ -1,5 +1,6 @@
 
 # SpecEXR
+![Screen](/images/22.gif)
 
 <!-- badges: start -->
 <!-- badges: end -->
