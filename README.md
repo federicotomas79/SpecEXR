@@ -5,7 +5,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The SpecEXR is a shiny app for single tree multi-spectral extraction This is a shiny app specially used to extract spectral information of a single tree, and I also provide a sample to show what the data looks like after extraction.
+The SpecEXR is a shiny app for single tree multi-spectral extraction. This is a shiny app specially used to extract spectral information of a single tree, and I also provide a sample to show what the data looks like after extraction.
 First of all, you need point cloud data with precise positioning information, which is used to segment each individual plant in a large area of forest land. In addition, you need to have multi-spectral or hyperspectral information of this forest land.
 
 
